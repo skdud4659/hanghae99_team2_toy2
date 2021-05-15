@@ -1,0 +1,26 @@
+.left-wrap{
+    width: 40vh;
+    height: 100vh;
+    background-color: black;
+}
+.btn{
+    margin-top: 10vh;
+    margin-left: 10vh;
+}
+.input-info{
+    width : 40vh;
+    margin: auto;
+}
+.join-box{
+    width : 60vh;
+    margin: auto;
+    margin-top: -90vh;
+    margin-right: 20%;
+    border: solid 1px black;
+}
+.join-btn{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 60%;
+}
