@@ -8,23 +8,55 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <title>shall we - 로그인</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/login.css">
 </head>
 
 <body>
-
+<!--  header  -->
+<div class="header-box">
+    <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민</h3>
+    <hr style="background-color: #2d3436">
+</div>
+<!-- video -->
+<!--<div id="skate-vid">-->
+<!--    <video autoplay muted loop>-->
+<!--        <source src="../static/video/Skate.mp4" type="video/mp4">-->
+<!--    </video>-->
+<!--</div>-->
+<form id="login-form">
+    <div id="login-box">
+        <h3 class="login-title">로그인</h3>
+        <!--  id  -->
+        <label for="userid">아이디 </label>
+        <input type="text" id="userid" name="userid" placeholder="아이디를 입력해주세요" maxlength="14">
+        <!--  pw  -->
+        <label for="userpw">비밀번호 </label>
+        <input type="password" id="userpw" name="userpw" placeholder="비밀번호를 입력해주세요">
+        <!--  button -->
+        <div class="btn-box">
+            <button type="submit" class="login-btn">로그인</button>
+            <button onclick="location.href='/letin'" type="button" class="letin-btn">회원가입</button>
+        </div>
+    </div>
+</form>
+<!--  아래 이미지 넣기  -->
+<!--<div id="letin-img">-->
+<!--    <img src="">-->
+<!--</div>-->
 </body>
 
 </html>
