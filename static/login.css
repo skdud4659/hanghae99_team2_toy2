@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
+}
+
+.header-box {
+    background-color: #2d3436;
+}
+
+.header-title {
+    font-size: small;
+    text-align: left;
+    /*font-weight: bold;*/
+    padding-top: 15px;
+    padding-left: 10px;
+    background-color: #2d3436;
+    color: white;
+}
+
+.login-title {
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: lighter;
+    text-shadow: 3px 2px 2px gray;
+}
+
+#login-box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 400px;
+    margin: auto;
+    margin-top: 25vh;
+}
+
+#login-box input {
+    margin-bottom: 20px;
+    outline: none;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: #2d3436 solid 1px;
+}
+
+input::placeholder {
+    opacity: 0.4;
+}
+
+.btn-box {
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-box button {
+    background-color: transparent;
+    color: #2d3436;
+    cursor: pointer;
+
+    border: #2d3436 solid 1px;
+    border-radius: 5px;
+    outline: none;
+
+    margin: 0 20px;
+}
+
+.btn-box button:hover {
+    color: #636e72;
+}
+
+#skate-vid {
+    position: fixed;
+    z-index: -10;
+    overflow: hidden;
+
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
