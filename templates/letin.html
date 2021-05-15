@@ -8,23 +8,72 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-    <title>shall we - 회원가</title>
+    <title>shall we - 회원가입 </title>
+    <link rel="stylesheet" type="text/css" href="../static/letin.css">
+
 </head>
 
-<body>입
-
+<body>
+        <!--  header  -->
+<div class="header-box">
+    <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민</h3>
+    <hr style="background-color: #2d3436">
+</div>
+        <!--  회원가입  -->
+<form id="letin-form">
+    <div id="letin-box">
+        <!--   이름    -->
+        <h3 class="letin-title">회원가입</h3>
+        <label for="username">이름 </label>
+        <input type="text" id="username" name="username" placeholder="이름을 입력해주세요">
+        <!--    아이디     -->
+        <label for="userid">아이디 </label>
+        <input type="text" id="userid" name="userid" placeholder="아이디를 입력해주세요">
+        <!--    비밀번호    -->
+        <label for="userpw">비밀번호</label>
+        <input type="password" id="userpw" name="userpw" placeholder="비밀번호를 입력해주세요">
+        <!--    비밀번호 확인    -->
+        <label for="re-pw">비밀번호 확인</label>
+        <input type="password" id="re-pw" name="re-pw" placeholder="비밀번호를 확인해주세요">
+        <p class="alert alert-success" id="alert-success" style="color: #70a1ff; text-align: center;">비밀번호가 일치합니다.</p>
+        <p class="alert alert-danger" id="alert-danger" style="color: red; text-align: center;">비밀번호가 일치하지 않습니다.</p>
+        <!--    가입하기 버튼    -->
+        <button type="submit" class="letin-btn">가입하기</button>
+    </div>
+</form>
+<script>
+    $(function () {
+        $("#alert-success").hide();
+        $("#alert-danger").hide();
+        $("input").keyup(function () {
+            var password = $("#userpw").val();
+            var re_password = $("#re-pw").val();
+            if (password != "" || re_password != "") {
+                if (password == re_password) {
+                    $("#alert-success").show();
+                    $("#alert-danger").hide();
+                    $("#submit").removeAttr("disabled");
+                } else {
+                    $("#alert-success").hide();
+                    $("#alert-danger").show();
+                    $("#submit").attr("disabled", "disabled");
+                }
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
