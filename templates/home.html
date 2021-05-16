@@ -38,35 +38,28 @@
     <br>
     <button class="btn">community</button>
 </div>
-
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
         <button onclick="location.href='letin.html'" class="top-btn">회원가입</button>
         <button onclick="location.href='login.html'" class="top-btn">로그인</button>
     </h3>
-    <hr>
+    <hr style="margin: 0">
 </div>
-
-<!--  영상 부분   -->
-<div class="main-vid">
-    <video autoplay muted loop>
-        <source src="../static/video/Skate.mp4" type="video/mp4">
-    </video>
-</div>
-
-<!--  메인페이지 제목, api 박스  -->
+<!--  video  -->
+<video autoplay muted loop class="main-vid">
+    <h1>shall we</h1>
+    <source src="../static/video/Skate.mp4" type="video/mp4">
+</video>
+<!--  메인페이지 제목  -->
 <div class="top-title">
     <h1>Shall we?</h1>
-    <div class="api-wrap hr-sect">
-        <div class="api-box">
-            <div id="weather-api">
-                <h2>날씨 api 서울지역으로 아이콘 + 온도</h2>
-            </div>
-            <div id="mise-api">
-                <h2>미세먼지 api 구별로</h2>
-            </div>
-        </div>
+</div>
+<!--  api   -->
+<div class="api-wrap hr-sect">
+    <div class="api-box">
+        <div id="weather-api"><h1>날씨api</h1></div>
+        <div id="mise-api"><h1>미세api</h1></div>
     </div>
 </div>
 </body>
