@@ -89,31 +89,41 @@ body {
     width: 100vh;
     height: 400px;
     display: flex;
+    border: #2d3436 solid 2px;
+    border-radius: 10px;
 }
 
 /*  기록용(지워도됨)  */
 .api-box h2 {
     text-align: center;
     margin-top: 50%;
+    color: black;
 }
 
 /* api 영역 나누기  */
 #weather-api {
     width: 50vh;
     height: 400px;
-    background-color: #636e72;
+    /*background-color: #636e72;*/
 }
 
 #mise-api {
     width: 50vh;
     height: 400px;
-    background-color: sandybrown;
+    /*background-color: sandybrown;*/
 }
 
 /* 영상 부분 */
-/*.main-vid {*/
-/*    background-color: grey;*/
-/*    position: fixed;*/
-/*    margin-left: 80vh;*/
-/*    z-index: -100;*/
-/*}*/
+.main-vid {
+    /*background-color: grey;*/
+    position: fixed;
+    z-index: -100;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
