@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
 }
 
 /* 왼쪽 메뉴 */
@@ -25,7 +26,7 @@ body {
 /* 멤버이름, 로그인, 회원가입 버튼  */
 .first_hr {
     margin-top: -100vh;
-    margin-left: 40vh;
+    /*margin-left: 40vh;*/
     background-color: #2d3436;
     padding-top: 1vh;
 }
@@ -34,6 +35,7 @@ body {
     font-size: small;
     text-align: left;
     padding: 2px 0;
+    margin-left: 5vh;
     background-color: #2d3436;
     color: white;
 }
@@ -51,19 +53,54 @@ body {
     color: #c4dcf9;
 }
 
-/* 메인페이지 제목, api박스  */
+/* 메인페이지 제목, video  */
 .top-title {
-    width: 40vh;
     margin-top: 10vh;
-    margin-left: 100vh;
+    margin-left: 40vh;
+    text-align: center;
 }
 
+.main-vid {
+    position: fixed;
+    width: 100%;
+    height: 400px;
+    margin-left: 40vh;
+    object-fit: fill;
+    z-index: -10;
+}
+
+/* api */
 .api-wrap {
-    /*background-color: #f0def2;*/
-    width: 140vh;
-    height: 450px;
-    margin-top: 20vh;
-    margin-left: -60vh;
+    /*background-color: #70a1ff;*/
+    margin-left: 40vh;
+    margin-top: 37vh;
+    display: flex;
+
+}
+
+.api-box {
+    /*background-color: #636e72;*/
+    display: flex;
+    width: 100vh;
+    height: 40vh;
+}
+
+#weather-api {
+    width: 50vh;
+    height: 40vh;
+    margin-bottom: 5vh;
+    border: black solid 1px;
+    border-radius: 10px;
+    /*background-color: #636e72;*/
+}
+
+#mise-api {
+    width: 50vh;
+    height: 40vh;
+    margin-bottom: 5vh;
+    border: black solid 1px;
+    border-radius: 10px;
+    /*background-color: sandybrown;*/
 }
 
 .hr-sect {
@@ -82,48 +119,4 @@ body {
     height: 1px;
     font-size: 0px;
     line-height: 0px;
-}
-
-.api-box {
-    /*background-color: #70a1ff;*/
-    width: 100vh;
-    height: 400px;
-    display: flex;
-    border: #2d3436 solid 2px;
-    border-radius: 10px;
-}
-
-/*  기록용(지워도됨)  */
-.api-box h2 {
-    text-align: center;
-    margin-top: 50%;
-    color: black;
-}
-
-/* api 영역 나누기  */
-#weather-api {
-    width: 50vh;
-    height: 400px;
-    /*background-color: #636e72;*/
-}
-
-#mise-api {
-    width: 50vh;
-    height: 400px;
-    /*background-color: sandybrown;*/
-}
-
-/* 영상 부분 */
-.main-vid {
-    /*background-color: grey;*/
-    position: fixed;
-    z-index: -100;
-    min-width: 100%;
-    min-height: 100%;
-    margin: auto;
-    height: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
