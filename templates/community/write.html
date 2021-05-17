@@ -30,10 +30,6 @@
 <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
         {% if session['user'] %}
         <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃 </button>
-        {% else %}
-<!--    비로그인 상태이면 기존 버튼     -->
-        <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
-        <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
         {% endif %}
     </h3>
     <hr style="margin: 0">
@@ -54,7 +50,12 @@
 </div>
 <!--글쓰기-->
 <div>
-
+ <div class="file">
+     <input type="file" id="file" style="display: none">
+     <input type="button" class="submit" value="작성하기">
+     <div onclick="onclick=document.all.file.click()"><img src="../../static/img/photo.PNG" height="70px"
+                                                           width="70px"/></div>
+ </div>
 </div>
 
 <script>
