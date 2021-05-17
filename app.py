@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, session, url_for, flash
+from datetime import timedelta
 from pymongo import MongoClient
 app = Flask(__name__)
 
@@ -11,14 +12,52 @@ def home():
     return render_template('home.html')
 
 #로그인
-@app.route('/login')
+@app.route('/login', methods=["GET", "POST"])
 def login():
-    return render_template('login.html')
+    if request.method == "GET":
+        return render_template('login.html')
+    else:
+        userid = request.form['userid']
+        userpw = request.form['userpw']
+        users = db.members.find_one({'user_id': userid, 'user_pw': userpw})
+        if users is None:
+            flash("아이디와 비밀번호를 확인해주세요.")
+            return redirect('login')
+        else:
+            session['user'] = userid
+            return redirect('/')
+        return redirect('/login')
+
+#로그아웃
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
 
 #회원가입
-@app.route('/letin')
-def letin():
-    return render_template('letin.html')
+app.config["SECRET_KEY"] = "hanghaeeeeee"
+@app.route('/register', methods=["GET", "POST"])
+def register():
+    if request.method == "GET":
+        return render_template('letin.html')
+    else:
+        username = request.form['username']
+        userid = request.form['userid']
+        userpw = request.form['userpw']
+        re_pw = request.form['re_pw']
+
+        doc = {'user_name': username, 'user_id': userid, 'user_pw': userpw, 'user_repw': re_pw}
+
+        if username == '' or userid == '' or userpw == '' or re_pw == '':
+            flash('입력되지 않은 값이 있습니다.')
+            return render_template('letin.html')
+        if userpw != re_pw:
+            flash('비밀번호를 확인해주세요.')
+            return render_template('letin.html')
+        else:
+            db.members.insert_one(doc)
+            flash('회원가입 완료, 로그인을 해주세요.')
+            return redirect('/login')
 
 #about us
 @app.route('/aboutus')
