@@ -24,26 +24,69 @@
 </head>
 
 <body>
-<!--  왼쪽 메뉴바  -->
-<div class="left-wrap">
-    <button class="btn" style="margin-top: 100px">Home</button>
-    <br>
-    <button class="btn">About</button>
-    <br>
-    <button class="btn">with me</button>
-    <br>
-    <button class="btn">shop</button>
-    <br>
-    <button class="btn">community</button>
-</div>
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
-        <button onclick="location.href='/letin'" class="top-btn">회원가입</button>
-        <button onclick="location.href='/login'" class="top-btn">로그인</button>
+        <button type="button" onclick="location.href='/letin'" class="top-btn">회원가입</button>
+        <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
     </h3>
     <hr style="margin: 0">
 </div>
+<!--  왼쪽 메뉴바  -->
+<div class="btns">
+    <div class="left-wrap">
+        <button type="button" class="btn" style="margin-top: 100px" onclick="location.href='/'">Home</button>
+        <br>
+        <button type="button" class="btn" onclick="location.href='/aboutus'">About</button>
+        <br>
+        <button type="button" class="btn" onclick="location.href='/makecrew'">with me</button>
+        <br>
+        <button type="button" class="btn" onclick="location.href='/shop'">shop</button>
+        <br>
+        <button type="button" class="btn" onclick="location.href='/community'">community</button>
+    </div>
+</div>
+<!-- about us -->
+<div>
+    <div class="about">
+        <h1> About page <span style="font-size:12px">이 페이지는 항해99 2기 사전 스터디 2조 토이 프로젝트로 생성된 페이지입니다.</span></h1>
+        <p> 최근에는 크루를 결성해 일시적으로 모임을 형성하고 함께 운동을 즐기는 사람들이 많아졌습니다.
+            <br>혼자하는 지루하고 평범한 운동은 그만!
+            <br>[쉘위]에서 의욕 뿜뿜 함께 운동을 진행할 크루를 모집하고 참가해보세요.</p>
+
+
+    </div>
+    <!--종혁님 info-->
+    <div class="about">
+        <h1>About us</h1>
+        <div class="grid">
+            <img src="" class="img">
+            <p class="cmt">우종혁 <small>Woo.jonghyuk</small><br> >> 페이지 구현 : with me / shop<br><br>블로그 :<a
+                    href="https://destory.tistory.com" style="color: white">https://destory.tistory.com</a><br>깃허브 : <a
+                    href="https://github.com/Jongveloper" style="color: white">https://github.com/Jongveloper</a></p>
+        </div>
+    </div>
+    <!--나영님 info-->
+    <div class="about">
+        <div class="grid ny_grid">
+            <p class="cmt ny_cmt">김나영 <small>Kim.nayeong</small><br> >> 페이지 구현 : about / community <br><br>블로그 :<a
+                    href="https://velog.io/@skdud4659" style="color: white">https://velog.io/@skdud4659</a><br>깃허브 : <a
+                    href="https://github.com/skdud4659" style="color: white">https://github.com/skdud4659</a></p>
+            <img src="../static/img/ny.PNG" class="img ny_img">
+        </div>
+    </div>
+    <!--선민님 info-->
+    <div class="about">
+        <div class="grid">
+            <img src="../static/img/sm.png" class="img">
+            <p class="cmt">이선민 <small>Lee.sunmin</small><br> >> 페이지 구현 : 로그인 / 회원가입 / home<br><br>블로그 :<a
+                    href="https://velog.io/@sunm309" style="color: white">
+                https://velog.io/@sunm309</a><br>깃허브 : <a href="https://github.com/sunm-in" style="color: white">
+                https://github.com/sunm-in</a></p>
+        </div>
+    </div>
+</div>
+
 <script>
 
 </script>

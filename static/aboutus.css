@@ -3,9 +3,9 @@ body {
     padding: 0;
     background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
 }
+
 /* 멤버이름, 로그인, 회원가입 버튼  */
 .first_hr {
-    margin-top: -100vh;
     /*margin-left: 40vh;*/
     background-color: #2d3436;
     padding-top: 1vh;
@@ -18,6 +18,8 @@ body {
     margin-left: 5vh;
     background-color: #2d3436;
     color: white;
+    position: relative;
+    z-index: 2;
 }
 
 .top-btn {
@@ -34,12 +36,22 @@ body {
 }
 
 /*메뉴바*/
-.left-wrap{
+.btns {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.left-wrap {
+    position: relative;
+    display: inline-block;
     width: 40vh;
     height: 100vh;
     background-color: #2d3436;
+    z-index: 1;
 }
-.btn{
+
+.btn {
     background-color: transparent;
     outline: none;
     border: none;
@@ -48,4 +60,48 @@ body {
     margin-top: 5vh;
     margin-left: 10vh;
     color: white;
+}
+
+/*aboutus*/
+.about {
+    width: 950px;
+    margin: 50px 0px 0px 50vh;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+}
+.img {
+    border: 1px black solid;
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    margin: 20px 0px auto 0px;
+    position: relative;
+}
+
+.cmt {
+    background-color: #2d3436;
+    display: inline-block;
+    position: relative;
+    color: white;
+    width: 350px;
+    height: 160px;
+    padding: 20px;
+    margin: 60px 0px 0px -70px;
+}
+
+.ny_grid {
+    grid-template-columns: 1fr 400px;
+}
+
+.ny_cmt {
+    margin: 60px -70px 0px 250px;
+    z-index: 2;
+}
+
+.ny_img {
+    z-index: 1;
 }
