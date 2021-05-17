@@ -39,13 +39,21 @@
     <button type="button" class="btn">community</button>
 </div>
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
+
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
-        <button type="button" onclick="location.href='/letin'" class="top-btn">회원가입</button>
+<!--    로그인하면 로그아웃 버튼으로 바뀜     -->
+        {% if session['user'] %}
+        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃 </button>
+        {% else %}
+<!--    비로그인 상태이면 기존 버튼     -->
+        <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
         <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
+        {% endif %}
     </h3>
     <hr style="margin: 0">
 </div>
+
 <!--  video  -->
 <video autoplay muted loop class="main-vid">
     <h1>shall we</h1>
