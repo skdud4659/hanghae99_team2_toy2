@@ -43,7 +43,7 @@ body {
 }
 
 .left-wrap {
-    position: relative;
+    position: fixed;
     display: inline-block;
     width: 40vh;
     height: 100vh;
@@ -93,6 +93,13 @@ body {
     margin: 60px 0px 0px -70px;
 }
 
+.withme {
+    color: white;
+    background-color: #2d3436;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
 .ny_grid {
     grid-template-columns: 1fr 400px;
 }

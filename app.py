@@ -65,5 +65,10 @@ def riding():
 def hiking():
     return render_template('/community/hiking.html')
 
+#커뮤니티 - 글쓰기
+@app.route('/community&write')
+def write():
+    return render_template('/community/write.html')
+
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)

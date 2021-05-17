@@ -43,7 +43,7 @@ body {
 }
 
 .left-wrap {
-    position: relative;
+    position: fixed;
     display: inline-block;
     width: 40vh;
     height: 100vh;
@@ -87,4 +87,5 @@ body {
     color: white;
     width: 80px;
     height: 30px;
+    cursor: pointer;
 }
