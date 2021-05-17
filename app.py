@@ -28,7 +28,7 @@ def aboutus():
 #크루 모집
 @app.route('/makecrew')
 def makecrew():
-    return render_template('makecrew.html')
+    return render_template('joincrew.html')
 
 #크루 참가
 @app.route('/joincrew')
