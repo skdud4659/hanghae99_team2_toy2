@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
+}
+
+/* 멤버이름, 로그인, 회원가입 버튼  */
+.first_hr {
+    /*margin-left: 40vh;*/
+    background-color: #2d3436;
+    padding-top: 1vh;
+}
+
+.header-title {
+    font-size: small;
+    text-align: left;
+    padding: 2px 0;
+    margin-left: 5vh;
+    background-color: #2d3436;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.top-btn {
+    float: right;
+    margin-right: 3vh;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.top-btn:hover {
+    color: #c4dcf9;
+}
+
+/*메뉴바*/
+.btns {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.left-wrap {
+    position: relative;
+    display: inline-block;
+    width: 40vh;
+    height: 100vh;
+    background-color: #2d3436;
+    z-index: 1;
+}
+
+.btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: #2d3436 solid 1px;
+    text-align: center;
+    margin-top: 5vh;
+    margin-left: 10vh;
+    color: white;
+}
+
+/*tag*/
+.tag {
+    width: 200px;
+    margin: 50px 0px 0px 45vh;
+    border: #2d3436 5px solid;
+    padding: 20px;
+}
+
+.workouts {
+    list-style: none;
+    padding: 10px;
+}
+
+.text {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2d3436;
+}
+
+.write_btn {
+    border: none;
+    background-color: #2d3436;
+    color: white;
+    width: 80px;
+    height: 30px;
+}
