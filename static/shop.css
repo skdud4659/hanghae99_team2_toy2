@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
+}
+
+.left-wrap{
+    width: 40vh;
+    height: 100vh;
+    background-color: #2d3436;
+}
+.btn{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: #2d3436 solid 1px;
+    text-align: center;
+    margin-top: 5vh;
+    margin-left: 10vh;
+    color: white;
+}
+.card{
+    display: flex;
+    margin: auto;
+    margin-top: -95vh;
+    margin-right: 55%;
+    border-radius: 20px;
+}

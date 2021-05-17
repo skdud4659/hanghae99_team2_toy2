@@ -62,53 +62,30 @@ body {
     color: white;
 }
 
-/*aboutus*/
-.about {
-    width: 950px;
-    margin: 50px 0px 0px 50vh;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-}
-.img {
-    border: 1px black solid;
-    border-radius: 20px;
-    width: 400px;
-    height: 400px;
-    display: inline-block;
-    margin: 20px 0px auto 0px;
-    position: relative;
-}
-
-.cmt {
-    background-color: #2d3436;
-    display: inline-block;
-    position: relative;
-    color: white;
-    width: 350px;
-    height: 160px;
+/*tag*/
+.tag {
+    width: 200px;
+    margin: 50px 0px 0px 45vh;
+    border: #2d3436 5px solid;
     padding: 20px;
-    margin: 60px 0px 0px -70px;
 }
 
-.withme {
-    color: white;
-    background-color: #2d3436;
+.workouts {
+    list-style: none;
+    padding: 10px;
+}
+
+.text {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2d3436;
+}
+
+.write_btn {
     border: none;
-    border-radius: 10px;
+    background-color: #2d3436;
+    color: white;
+    width: 80px;
+    height: 30px;
     cursor: pointer;
-}
-.ny_grid {
-    grid-template-columns: 1fr 400px;
-}
-
-.ny_cmt {
-    margin: 60px -70px 0px 250px;
-    z-index: 2;
-}
-
-.ny_img {
-    z-index: 1;
 }
