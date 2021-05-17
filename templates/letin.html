@@ -26,13 +26,21 @@
 </head>
 
 <body>
-        <!--  header  -->
+    {%with messages = get_flashed_messages()%}
+    {%if messages %}
+    <script type="text/javascript">
+        alert("{{messages[-1]}}");
+    </script>
+    {%endif%}
+    {%endwith%}
+<!--  header  -->
 <div class="header-box">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민</h3>
     <hr style="background-color: #2d3436">
 </div>
-        <!--  회원가입  -->
-<form id="letin-form">
+
+<!--  회원가입  -->
+<form method="post" id="letin-form">
     <div id="letin-box">
         <!--   이름    -->
         <h3 class="letin-title">회원가입</h3>
@@ -45,8 +53,8 @@
         <label for="userpw">비밀번호</label>
         <input type="password" id="userpw" name="userpw" placeholder="비밀번호를 입력해주세요">
         <!--    비밀번호 확인    -->
-        <label for="re-pw">비밀번호 확인</label>
-        <input type="password" id="re-pw" name="re-pw" placeholder="비밀번호를 확인해주세요">
+        <label for="re_pw">비밀번호 확인</label>
+        <input type="password" id="re_pw" name="re_pw" placeholder="비밀번호를 확인해주세요">
         <p class="alert alert-success" id="alert-success" style="color: #70a1ff; text-align: center;">비밀번호가 일치합니다.</p>
         <p class="alert alert-danger" id="alert-danger" style="color: red; text-align: center;">비밀번호가 일치하지 않습니다.</p>
         <!--    가입하기 버튼    -->
