@@ -81,29 +81,12 @@ button:focus {
     cursor: pointer;
 }
 
-#write_box {
-
-}
-
-.ths {
-    background-color: #2d3436;
-    color: white;
-    width: 1050px;
-    height: 40px;
-    display: grid;
+.posting_box {
     list-style: none;
-    grid-template-columns: 100px 700px 100px 1fr;
-    line-height: 40px;
-    text-align: center;
-}
-
-#posting_box {
-    display: grid;
-    list-style: none;
-    grid-template-columns: 100px 700px 100px 1fr;
     background-color: white;
     width: 1050px;
-    text-align: center;
+    border: #2d3436 10px solid;
+    padding: 30px;
 }
 
 /*write - 글쓰기*/
