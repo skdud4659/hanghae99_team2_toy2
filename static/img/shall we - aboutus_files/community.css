@@ -4,10 +4,6 @@ body {
     background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
 }
 
-button:focus {
-    outline: none;
-}
-
 /* 멤버이름, 로그인, 회원가입 버튼  */
 .first_hr {
     /*margin-left: 40vh;*/
@@ -66,44 +62,50 @@ button:focus {
     color: white;
 }
 
-/*community*/
-.community_box {
+/*tag*/
+.tag {
+    width: 200px;
     margin: 50px 0px 0px 45vh;
+    border: #2d3436 5px solid;
+    padding: 20px;
+}
+
+.workouts {
+    list-style: none;
+    padding: 10px;
+}
+
+.text {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2d3436;
 }
 
 .write_btn {
-    display: block;
     border: none;
     background-color: #2d3436;
     color: white;
-    width: 110px;
+    width: 80px;
     height: 30px;
     cursor: pointer;
 }
 
+.community {
+   margin: 50px 0px 0px 50px;
+   border: #2d3436 5px solid;
+    padding: 20px;
+    width: 800px;
+}
+
+.community_flex {
+    display: flex;
+    flex-direction: row;
+}
+
 #write_box {
-
-}
-
-.ths {
-    background-color: #2d3436;
-    color: white;
-    width: 1050px;
-    height: 40px;
-    display: grid;
-    list-style: none;
-    grid-template-columns: 100px 700px 100px 1fr;
-    line-height: 40px;
-    text-align: center;
-}
-
-#posting_box {
-    display: grid;
-    list-style: none;
-    grid-template-columns: 100px 700px 100px 1fr;
-    background-color: white;
-    width: 1050px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 /*write - 글쓰기*/
@@ -122,8 +124,6 @@ button:focus {
     color: white;
     border: none;
     border-radius: 50%;
-    font-size: 15px;
-    cursor: pointer;
 }
 
 .write_box {

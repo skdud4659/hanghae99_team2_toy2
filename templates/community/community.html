@@ -27,11 +27,11 @@
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
-<!--    로그인하면 로그아웃 버튼으로 바뀜     -->
+        <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
         {% if session['user'] %}
-        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃 </button>
+        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃</button>
         {% else %}
-<!--    비로그인 상태이면 기존 버튼     -->
+        <!--    비로그인 상태이면 기존 버튼     -->
         <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
         <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
         {% endif %}
@@ -53,27 +53,60 @@
     </div>
 </div>
 <!--커뮤니티창-->
-<div>
-    <div class="tag">
-        <h4> 관심/인기태그</h4>
-        <hr>
-        <ul class="workouts">
-            <li class="text"><a href="/community&running" style="color: #2d3436">#러닝</a></li>
-            <li class="text"><a href="/community&climbing" style="color: #2d3436">#클라이밍</a></li>
-            <li class="text"><a href="/community&riding" style="color: #2d3436">#라이딩</a></li>
-            <li class="text"><a href="/community&hiking" style="color: #2d3436">#등산</a></li>
-        </ul>
+<div class="community_box">
+    <div class="community" id="community">
+        <!--    로그인하면 글쓰기 버튼 활성화     -->
+        {% if session['user'] %}
         <button type="button" class="write_btn" onclick="location.href='/community&write'">&#10000; 글쓰기</button>
-    </div>
-    <div>
-
+        {% endif %}
+        <table>
+            <thead>
+            <tr class="ths">
+                <th> 태그</th>
+                <th> 제목</th>
+                <th> 작성자</th>
+                <th> 작성일시</th>
+            </tr>
+            </thead>
+            <tbody id="post">
+            <tr id="posting_box">
+                <td> 태그</td>
+                <td> 제목</td>
+                <td> 작성자</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
 <script>
+    $(document).ready(function () {
+        showpost();
+    });
 
-</script>
+    function showpost() {
+        $.ajax({
+            type: "GET",
+            url: "/community&write&get",
+            data: {},
+            success: function (response) {
+                let post = response['all_posts']
+                for (let i = 0; i < post.length; i++) {
+                    let tag = post[i]['tag']
+                    let title = post[i]['title']
 
-</body>
+                    let temp_html = `<tbody>
+                                        <tr id="posting_box">
+                                            <td> ${tag}</td>
+                                            <td> ${title}</td>
+                                            <td> 작성자</td>
+                                            <td> 작성시간</td>
+                                        </tr>
+                                        </tbody>`
+                    $('#post').append(temp_html)
+                }
 
-</html>
+
+            </body>
+
+            </html>

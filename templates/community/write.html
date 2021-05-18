@@ -53,13 +53,14 @@
 <div>
     <div class="file">
         <input type="file" id="file" style="display: none">
-        <input type="button" class="submit" value="작성하기" onclick="alert('게시글 작성이 완료되었습니다.'); location.href='/community'">
+        <button type="button" class="submit" onclick="post()">작성하기
+        </button>
         <div onclick="onclick=document.all.file.click()"><img src="../../static/img/photo.PNG" height="70px"
-                                                              width="70px"/></div>
+                                                              width="70px" style="cursor: pointer"></div>
     </div>
     <div class="write_box">
         <div class="select">
-            <select>
+            <select id="tag">
                 <option>#러닝</option>
                 <option>#클라이밍</option>
                 <option>#라이딩</option>
@@ -67,12 +68,29 @@
             </select>
         </div>
         <div id="write">
-            <input type="text" placeholder="제목" class="box">
+            <input type="text" placeholder="제목" class="box" id="title">
             <hr>
-            <input type="text" placeholder="내용을 입력하세요." class="cmtbox">
+            <input type="text" placeholder="내용을 입력하세요." class="cmtbox" id="cmt">
         </div>
     </div>
 </div>
+<script>
+    function post() {
+        let tag = $('#tag').val()
+        let title = $('#title').val()
+        let cmt = $('#cmt').val()
+
+        $.ajax({
+            type: "POST",
+            url: "/community&write&get",
+            data: {tag_give: tag, title_give: title, cmt_give: cmt},
+            success: function (response) {
+                alert(response["msg"]);
+                window.location.href='/community';
+            }
+        })
+    }
+</script>
 </body>
 
 </html>
