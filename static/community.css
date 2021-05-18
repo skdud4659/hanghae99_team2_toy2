@@ -107,3 +107,41 @@ body {
     border: none;
     border-radius: 50%;
 }
+
+.write_box {
+    margin: 30px 0px 0px 45vh;
+    width: 1000px;
+    background-color: #2d3436;
+    padding: 50px;
+}
+
+.select {
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100px;
+    padding: 5px;
+}
+
+#write {
+    background-color: white;
+    padding: 20px;
+    height: 400px;
+}
+
+.box {
+    border: none;
+    font-size: 25px;
+    width: 850px;
+}
+
+.cmtbox {
+    border: none;
+    font-size: 20px;
+    width: 850px;
+}
+
+input:focus {
+    outline: none;
+}
