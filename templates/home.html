@@ -36,18 +36,23 @@
                     let gu_mise = rows[i]['IDEX_MVL']
                     let gu_condition = rows[i]['IDEX_NM']
 
-                    let temp_html = `<thead>
-                                        <tr>
-                                            <td class="dusty-list">${gu_name}</td>
-                                            <td class="dusty-list">${gu_mise}</td>
-                                            <td class="dusty-list">${gu_condition}</td>
-                                        </tr>
-                                    </thead>`
+                    let temp_html = `<li class="dusty-list">${gu_name} - ${gu_mise} ${gu_condition} </li>`
 
                     $('#dusty-box').append(temp_html)
                 }
             }
         })
+
+        $(function () {
+            $('#mise-api').vTicker({
+                speed: 500,
+                pause: 1000,
+                showItems: 2,
+                height: 316,
+                padding: 10,
+                autoAppend: true
+            });
+        });
     </script>
 
 </head>
@@ -95,18 +100,14 @@
     <div class="api-box">
         <div id="weather-api"><h1>날씨api</h1></div>
         <div id="mise-api">
-            <table id="dusty-box">
-                <thead>
-                    <tr>
-                        <th class="dusty-list">지역</th>
-                        <th class="dusty-list">미세먼지</th>
-                        <th class="dusty-list">상태</th>
-                    </tr>
-                </thead>
-            </table>
+            <ul id="dusty-box">
+                <li class="vticker">서울 미세먼지 현황</li>
+                <li class="vticker">#</li>
+            </ul>
         </div>
     </div>
 </div>
 </body>
-
+<script type="text/javascript" charset="utf-8" src="../static/vticker/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/vticker/jquery.vticker.min.js"></script>
 </html>
