@@ -21,15 +21,16 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../static/community.css">
     <title>shall we - aboutus</title>
+
 </head>
 
 <body>
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
-<!--    로그인하면 로그아웃 버튼으로 바뀜     -->
+        <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
         {% if session['user'] %}
-        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃 </button>
+        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃</button>
         {% endif %}
     </h3>
     <hr style="margin: 0">
@@ -50,18 +51,28 @@
 </div>
 <!--글쓰기-->
 <div>
- <div class="file">
-     <input type="file" id="file" style="display: none">
-     <input type="button" class="submit" value="작성하기">
-     <div onclick="onclick=document.all.file.click()"><img src="../../static/img/photo.PNG" height="70px"
-                                                           width="70px"/></div>
- </div>
+    <div class="file">
+        <input type="file" id="file" style="display: none">
+        <input type="button" class="submit" value="작성하기" onclick="alert('게시글 작성이 완료되었습니다.'); location.href='/community'">
+        <div onclick="onclick=document.all.file.click()"><img src="../../static/img/photo.PNG" height="70px"
+                                                              width="70px"/></div>
+    </div>
+    <div class="write_box">
+        <div class="select">
+            <select>
+                <option>#러닝</option>
+                <option>#클라이밍</option>
+                <option>#라이딩</option>
+                <option>#등산</option>
+            </select>
+        </div>
+        <div id="write">
+            <input type="text" placeholder="제목" class="box">
+            <hr>
+            <input type="text" placeholder="내용을 입력하세요." class="cmtbox">
+        </div>
+    </div>
 </div>
-
-<script>
-
-</script>
-
 </body>
 
 </html>
