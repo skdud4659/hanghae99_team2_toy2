@@ -59,24 +59,8 @@
         {% if session['user'] %}
         <button type="button" class="write_btn" onclick="location.href='/community&write'">&#10000; 글쓰기</button>
         {% endif %}
-        <table>
-            <thead>
-            <tr class="ths">
-                <th> 태그</th>
-                <th> 제목</th>
-                <th> 작성자</th>
-                <th> 작성일시</th>
-            </tr>
-            </thead>
-            <tbody id="post">
-            <tr id="posting_box">
-                <td> 태그</td>
-                <td> 제목</td>
-                <td> 작성자</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
+        <div id="post">
+        </div>
     </div>
 </div>
 <script>
@@ -94,17 +78,21 @@
                 for (let i = 0; i < post.length; i++) {
                     let tag = post[i]['tag']
                     let title = post[i]['title']
+                    let cmt = post[i]['cmt']
 
-                    let temp_html = `<tbody>
-                                        <tr id="posting_box">
-                                            <td> ${tag}</td>
-                                            <td> ${title}</td>
-                                            <td> 작성자</td>
-                                            <td> 작성시간</td>
-                                        </tr>
-                                        </tbody>`
+                    let temp_html = `<div>
+                                        <ul class="posting_box">
+                                            <small>${tag}</small><li class="title">${title}</li>
+                                            <hr>
+                                            <li class="title">${cmt}</li>
+                                        </ul>
+                                    </div>`
                     $('#post').append(temp_html)
                 }
+            }
+        })
+    }
+</script>
 
 
             </body>
