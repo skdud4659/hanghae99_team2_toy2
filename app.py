@@ -67,12 +67,12 @@ def aboutus():
 #크루 모집
 @app.route('/makecrew')
 def makecrew():
-    return render_template('joincrew.html')
+    return render_template('makecrew.html')
 
 #크루 참가
 @app.route('/joincrew')
 def joincrew():
-    return render_template('joincrew.html')
+    return render_template('makecrew.html')
 
 #shop
 @app.route('/shop')

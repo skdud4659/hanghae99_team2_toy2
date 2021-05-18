@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <!-- Required meta tags -->
@@ -8,95 +8,78 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../static/joincrew.css">
-
-
-    <title>shall we - join crew</title>
-    <link rel="stylesheet" type="text/css" href="../static/joincrew.css">
+    <title>shall we - with me</title>
 </head>
 
 <body>
-<div class="left-wrap">
-    <button type="button" class="btn" style="margin-top: 100px">Home</button>
-    <br>
-    <button type="button" class="btn">About</button>
-    <br>
-    <button type="button" class="btn">with me</button>
-    <br>
-    <button type="button" class="btn">shop</button>
-    <br>
-    <button type="button" class="btn">community</button>
-</div> <!--왼쪽 탭-->
-<form>
-    <div class="join-box">
-        <div class="join-area"> <!--운동종류-->
-            <input type="text" name="exercise" id="exercise"
+    <div class="left-wrap">
+        <button type="button" class="left-btn" style="margin-top: 100px">Home</button>
+        <br>
+        <button type="button" class="left-btn">About</button>
+        <br>
+        <button type="button" class="left-btn">with me</button>
+        <br>
+        <button type="button" class="left-btn">shop</button>
+        <br>
+        <button type="button" class="left-btn">community</button>
+    </div> <!--왼쪽 탭-->
+    <form>
+    <div class="info-border">
+        <div class="join-area" style="margin-top: 20px;"> <!--이름-->
+            <input type="text" name="name" id="name"
                    autocomplete="off" required>
-            <label for="exercise">종류</label>
-        </div> <!--운동장소-->
-        <div class="join-area"> <!-- 장소-->
-            <input type="text" name="place" id="place"
+            <label for="name">이름</label>
+        </div> <!--이름-->
+        <div class="join-area"> <!--이메일-->
+            <input type="email" name="email" id="email"
                    autocomplete="off" required>
-            <label for="place">장소</label>
-        </div> <!--장소-->
-        <div class="join-area"> <!--시간-->
-            <input type="text" name="time" id="time"
+            <label for="email">메일</label>
+        </div> <!--이메일-->
+        <div class="join-area"> <!--전화번호-->
+            <input type="text" name="phone" id="phone"
                    autocomplete="off" required>
-            <label for="time">시간</label>
-        </div> <!--시간-->
-        <div class="join-area"> <!--인원-->
-            <input type="text" name="people" id="people" style="margin-bottom: 20px;"
-                   autocomplete="off" required>
-            <label for="people">인원</label>
-        </div> <!--인원-->
-        <button type="button" class="btn btn-success join-btn" id="btn">크루 모집</button>
+            <label for="phone">번호</label>
+        </div> <!--전화번호-->
+        <button type="button" class="btn btn-success join-btn" id="btn">제출하기</button>
     </div>
-
-    <hr>
 </form>
 <script>
-    let exercise = $('#exercise');
-    let place = $('#place');
-    let time = $('#time');
-    let people = $('#people');
+    let name = $('#name');
+    let email = $('#email');
+    let phone = $('#phone');
     let btn = $('#btn');
 
     $(btn).on('click', function() {
-        if ($(exercise).val() == "") {
-                $(exercise).next('label').addClass('warning');
+        if ($(name).val() == "") {
+                $(name).next('label').addClass('warning');
                 setTimeout(function() {
                     $('label').removeClass('warning');
                 },1500);
-        } else if ($(place).val() == "") {
-                $(place).next('label').addClass('warning');
+        } else if ($(email).val() == "") {
+                $(email).next('label').addClass('warning');
                 setTimeout(function() {
                     $('label').removeClass('warning');
                 },1500);
-        } else if ($(time).val() == "") {
-            $(time).next('label').addClass('warning');
+        } else if ($(phone).val() == "") {
+            $(phone).next('label').addClass('warning');
             setTimeout(function () {
                 $('label').removeClass('warning');
             }, 1500);
-        } else if ($(people).val() == "") {
-            $(people).next('label').addClass('warning');
-            setTimeout(function () {
-                $('label').removeClass('warning');
-            }, 1500);
-        }
+            }
     });
 </script>
-
 </body>
 
 </html>

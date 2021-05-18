@@ -8,22 +8,93 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/makecrew.css">
 
-    <title>shall we - with me</title>
+
+    <title>shall we - join crew</title>
 </head>
 
 <body>
+<div class="left-wrap">
+    <button type="button" class="btn" style="margin-top: 100px">Home</button>
+    <br>
+    <button type="button" class="btn">About</button>
+    <br>
+    <button type="button" class="btn">with me</button>
+    <br>
+    <button type="button" class="btn">shop</button>
+    <br>
+    <button type="button" class="btn">community</button>
+</div> <!--왼쪽 탭-->
+<form>
+    <div class="join-box">
+        <div class="make-area"> <!--운동종류-->
+            <input type="text" name="exercise" id="exercise"
+                   autocomplete="off" required>
+            <label for="exercise">종류</label>
+        </div> <!--운동장소-->
+        <div class="make-area"> <!-- 장소-->
+            <input type="text" name="place" id="place"
+                   autocomplete="off" required>
+            <label for="place">장소</label>
+        </div> <!--장소-->
+        <div class="make-area"> <!--시간-->
+            <input type="text" name="time" id="time"
+                   autocomplete="off" required>
+            <label for="time">시간</label>
+        </div> <!--시간-->
+        <div class="make-area"> <!--인원-->
+            <input type="text" name="people" id="people" style="margin-bottom: 20px;"
+                   autocomplete="off" required>
+            <label for="people">인원</label>
+        </div> <!--인원-->
+        <button type="button" class="btn btn-success join-btn" id="btn">크루 모집</button>
+    </div>
+
+    <hr>
+</form>
+<script>
+    let exercise = $('#exercise');
+    let place = $('#place');
+    let time = $('#time');
+    let people = $('#people');
+    let btn = $('#btn');
+
+    $(btn).on('click', function() {
+        if ($(exercise).val() == "") {
+                $(exercise).next('label').addClass('warning');
+                setTimeout(function() {
+                    $('label').removeClass('warning');
+                },1500);
+        } else if ($(place).val() == "") {
+                $(place).next('label').addClass('warning');
+                setTimeout(function() {
+                    $('label').removeClass('warning');
+                },1500);
+        } else if ($(time).val() == "") {
+            $(time).next('label').addClass('warning');
+            setTimeout(function () {
+                $('label').removeClass('warning');
+            }, 1500);
+        } else if ($(people).val() == "") {
+            $(people).next('label').addClass('warning');
+            setTimeout(function () {
+                $('label').removeClass('warning');
+            }, 1500);
+        }
+    });
+</script>
 
 </body>
 

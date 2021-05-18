@@ -23,6 +23,7 @@ body {
     display: flex;
     margin: auto;
     margin-top: -95vh;
+    margin-left: 24rem;
     margin-right: 55%;
     border-radius: 20px;
 }
