@@ -8,45 +8,72 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <title>shall we</title>
 
     <link rel="stylesheet" type="text/css" href="../static/home.css">
+
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+            data: {},
+            success: function (response) {
+                let rows = response['RealtimeCityAir']['row']
+                for(let i = 0; i < rows.length; i++) {
+                    let gu_name = rows[i]['MSRSTE_NM']
+                    let gu_mise = rows[i]['IDEX_MVL']
+                    let gu_condition = rows[i]['IDEX_NM']
+
+                    let temp_html = `<thead>
+                                        <tr>
+                                            <td class="dusty-list">${gu_name}</td>
+                                            <td class="dusty-list">${gu_mise}</td>
+                                            <td class="dusty-list">${gu_condition}</td>
+                                        </tr>
+                                    </thead>`
+
+                    $('#dusty-box').append(temp_html)
+                }
+            }
+        })
+    </script>
+
 </head>
 
 <body>
 <!--  왼쪽 메뉴바  -->
 <div class="left-wrap">
     <button type="button" class="btn" style="margin-top: 100px" onclick="location.href='/'">Home</button>
-        <br>
-        <button type="button" class="btn" onclick="location.href='/aboutus'">About</button>
-        <br>
-        <button type="button" class="btn" onclick="location.href='/makecrew'">with me</button>
-        <br>
-        <button type="button" class="btn" onclick="location.href='/shop'">shop</button>
-        <br>
-        <button type="button" class="btn" onclick="location.href='/community'">community</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/aboutus'">About</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/makecrew'">with me</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/shop'">shop</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/community'">community</button>
 </div>
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
 
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
-<!--    로그인하면 로그아웃 버튼으로 바뀜     -->
+        <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
         {% if session['user'] %}
-        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃 </button>
+        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃</button>
         {% else %}
-<!--    비로그인 상태이면 기존 버튼     -->
+        <!--    비로그인 상태이면 기존 버튼     -->
         <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
         <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
         {% endif %}
@@ -67,7 +94,17 @@
 <div class="api-wrap hr-sect">
     <div class="api-box">
         <div id="weather-api"><h1>날씨api</h1></div>
-        <div id="mise-api"><h1>미세api</h1></div>
+        <div id="mise-api">
+            <table id="dusty-box">
+                <thead>
+                    <tr>
+                        <th class="dusty-list">지역</th>
+                        <th class="dusty-list">미세먼지</th>
+                        <th class="dusty-list">상태</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 </div>
 </body>

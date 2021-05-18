@@ -120,3 +120,15 @@ body {
     font-size: 0px;
     line-height: 0px;
 }
+
+#dusty-box {
+    width: 40vh;
+    margin-left: 5vh;
+}
+
+.dusty-list {
+    border: #70a1ff solid 1px;
+    color: black;
+    text-align: center;
+    /*padding: 5px;*/
+}
