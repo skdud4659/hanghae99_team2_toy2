@@ -60,6 +60,24 @@
         <button type="button" class="write_btn" onclick="location.href='/community&write'">&#10000; 글쓰기</button>
         {% endif %}
         <div id="post">
+            <div>
+                <ul class="posting_box">
+                    <div style="margin-bottom: 5px">&#9786;아이디1</div>
+                    <small>#러닝</small>
+                    <li class="title">러닝 크루 후기</li>
+                    <hr>
+                    <li class="title">다함께여서 즐거웠어요!</li>
+                </ul>
+            </div>
+            <div>
+                <ul class="posting_box">
+                    <div style="margin-bottom: 5px">&#9786;아이디2</div>
+                    <small>#클라이밍</small>
+                    <li class="title">다함께 해서 즐거웠던 클라이밍!</li>
+                    <hr>
+                    <li class="title">혼자하면 금방 지칠텐데 크루분들과 함께하니 시간이 금방 갔어요!</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -82,12 +100,13 @@
 
                     let temp_html = `<div>
                                         <ul class="posting_box">
+                                            <div style="margin-bottom: 5px">&#9786;{{session['user']}}</div>
                                             <small>${tag}</small><li class="title">${title}</li>
                                             <hr>
                                             <li class="title">${cmt}</li>
                                         </ul>
                                     </div>`
-                    $('#post').append(temp_html)
+                    $('#post').prepend(temp_html)
                 }
             }
         })
@@ -95,6 +114,6 @@
 </script>
 
 
-            </body>
+</body>
 
-            </html>
+</html>
