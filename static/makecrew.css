@@ -26,7 +26,7 @@ body {
 .join-box{
     width : 60vh;
     margin: auto;
-    margin-top: -90vh;
+    margin-top: -100vh;
     margin-right: 20%;
     /*border: solid 1px black;*/
     border-radius: 20px;
@@ -42,6 +42,28 @@ body {
     border: #2d3436 solid 1px;
     border-radius: 5px;
     cursor: pointer;
+}
+.crew-info{
+    width: 200px;
+    height: 250px;
+    border: solid 1px black;
+    margin: auto;
+    margin-left: 23rem;
+    border-radius: 20px;
+    /*text-align: center;*/
+}
+.crew-btn{
+    margin-top: -1.5vh;
+    display: block;
+    background-color: transparent;
+    color: #2d3436;
+    width: 100px;
+    border: #2d3436 solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.info-text{
+    margin-left: 10px;
 }
 
 .make-area {

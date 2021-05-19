@@ -78,6 +78,29 @@ def aboutus():
 def makecrew():
     return render_template('makecrew.html')
 
+#크루모집(POST)API
+@app.route('/crew', methods=['POST'])
+def save_crew():
+    exercise_receive = request.form['exercise_give']
+    place_receive = request.form['place_give']
+    time_receive = request.form['time_give']
+    people_receive = request.form['people_give']
+
+    doc = {
+        'exercise' : exercise_receive,
+        'place' : place_receive,
+        'time' : time_receive,
+        'people' : people_receive
+    }
+    db.crew.insert_one(doc)
+
+    return jsonify({'msg': '크루가 생성되었습니다!'})
+
+#크루목록보기(GET)API
+@app.route('/crew', methods=['GET'])
+def view_crew():
+    crew = list(db.crew.find({}, {'_id': False}))
+    return jsonify({'crew': crew})
 
 # 크루 참가
 @app.route('/joincrew')

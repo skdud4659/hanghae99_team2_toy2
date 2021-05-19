@@ -24,6 +24,52 @@
 
     <title>shall we - join crew</title>
 </head>
+<script>
+    $(document).ready(function (){
+        listing();
+    });
+
+    function listing(){
+        $.ajax({
+            type: "GET",
+            url: "/crew",
+            data: {},
+            success: function (response) {
+                let makecrew = response["crew"];
+                for(let i = 0; i < makecrew.length; i++){
+                    let exercise = makecrew[i]['exercise']
+                    let place = makecrew[i]['place']
+                    let time = makecrew[i]['time']
+                    let people = makecrew[i]['people']
+
+                    let temp_html = `<div class="crew-info">
+                                        <p class="info-text">종류: ${exercise}</p>
+                                        <p class="info-text">장소: ${place}</p>
+                                        <p class="info-text">시간: ${time}</p>
+                                        <p class="info-text">모집인원: ${people}</p>
+                                        <button type="button" class="btn btn-success crew-btn" id="crew-btn">참가하기</button>
+                                     </div>`
+                    $('#make-crew').append(temp_html)
+                }
+            }
+        })
+    }
+    function make_crew() {
+        let exercise = $('#exercise').val();
+        let place = $('#place').val();
+        let time = $('#time').val();
+        let people = $('#people').val();
+        $.ajax({
+            type: "POST",
+            url: "/crew",
+            data: {exercise_give: exercise, place_give: place, time_give: time, people_give: people},
+            success: function (response){
+                alert(response['msg'])
+                window.location.reload();
+            }
+        })
+    }
+</script>
 
 <body>
 <div class="left-wrap">
@@ -59,10 +105,22 @@
                    autocomplete="off" required>
             <label for="people">인원</label>
         </div> <!--인원-->
-        <button type="button" class="btn btn-success join-btn" id="btn">크루 모집</button>
+        <button type="button" onclick="make_crew();" class="btn btn-success join-btn" id="btn">크루 모집</button>
     </div>
-
     <hr>
+    <div class="crew-info">
+        <p style="margin-top: 15px" class="info-text">(모집중)</p>
+        <p class="info-text">종류 : </p>
+        <p class="info-text">장소 : </p>
+        <p class="info-text">시간 : </p>
+        <p class="info-text">모집인원 :</p>
+        <button type="button" class="btn btn-success crew-btn" id="crew-btn">참가하기</button>
+    </div>
+    <divbody id="make-crew">
+        <div class="crew-info">
+        </div>
+    </divbody>
+
 </form>
 <script>
     let exercise = $('#exercise');
