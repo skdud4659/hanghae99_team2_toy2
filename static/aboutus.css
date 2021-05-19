@@ -112,3 +112,60 @@ body {
 .ny_img {
     z-index: 1;
 }
+
+/*이메일보내기*/
+.getintouch {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 500px 1fr;
+}
+
+.message {
+    margin-top: 50px;
+}
+
+.inputbox_a {
+    border: none;
+    width: 300px;
+    height: 40px;
+    background-color: #2d3436;
+    color: white;
+    padding: 10px;
+}
+
+.inputbox_a:focus {
+    outline: none;
+}
+
+.inputbox_b {
+    border: none;
+    width: 980px;
+    height: 400px;
+    background-color: #2d3436;
+    color: white;
+    text-align: top;
+    padding: 15px;
+}
+
+.inputbox_b:focus {
+    outline: none;
+}
+
+.inputbox_a::placeholder {
+    color: white;
+}
+
+.inputbox_b::placeholder {
+    color: white;
+}
+
+.getintouch_btn {
+    display: block;
+    margin: 30px auto;
+    border: none;
+    background-color: #2d3436;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+}
