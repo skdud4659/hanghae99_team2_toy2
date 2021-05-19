@@ -19,9 +19,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../../static/community.css">
+    <link rel="stylesheet" type="text/css" href="../static/aboutus.css">
     <title>shall we - aboutus</title>
-
 </head>
 
 <body>
@@ -31,6 +30,10 @@
         <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
         {% if session['user'] %}
         <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃</button>
+        {% else %}
+        <!--    비로그인 상태이면 기존 버튼     -->
+        <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
+        <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
         {% endif %}
     </h3>
     <hr style="margin: 0">
@@ -46,51 +49,31 @@
         <br>
         <button type="button" class="btn" onclick="location.href='/shop'">shop</button>
         <br>
-        <button type="button" class="btn" onclick="location.href='/community'" style="text-decoration: underline; font-weight: bolder">community</button>
+        <button type="button" class="btn" onclick="location.href='/community'">community</button>
     </div>
 </div>
-<!--글쓰기-->
-<div>
-    <div class="file">
-        <input type="file" id="file" style="display: none" accept="image/jpeg">
-        <button type="button" class="submit" onclick="post()">작성하기
-        </button>
-        <div onclick="onclick=document.all.file.click()"><img src="../../static/img/photo.PNG" height="70px"
-                                                              width="70px" style="cursor: pointer"></div>
+<!-- about us -->
+<div class="about">
+        <h1> Get in touch</h1>
+    <div class="getintouch">
+        <div>
+            <p>Name</p>
+            <input type="text" placeholder="이름을 입력해주세요." class="inputbox_a"></div>
+        <div>
+            <p>Email</p>
+            <input type="text" placeholder="이메일을 입력해주세요." class="inputbox_a"></div>
     </div>
-    <div class="write_box">
-        <div class="select">
-            <select id="tag">
-                <option>#러닝</option>
-                <option>#클라이밍</option>
-                <option>#라이딩</option>
-                <option>#등산</option>
-            </select>
-        </div>
-        <div id="write">
-            <input type="text" placeholder="제목" class="box" id="title">
-            <hr>
-            <input type="text" placeholder="내용을 입력하세요." class="cmtbox" id="cmt">
-        </div>
-    </div>
+    <div class="message">
+        <p>Message</p>
+        <textarea type="text" placeholder="소중한 의견을 들려주세요." class="inputbox_b"></textarea></div>
+    <button type="button" class="getintouch_btn" onclick="location.href='/community'">submit</button>
 </div>
-<script>
-    function post() {
-        let tag = $('#tag').val()
-        let title = $('#title').val()
-        let cmt = $('#cmt').val()
 
-        $.ajax({
-            type: "POST",
-            url: "/community&write&get",
-            data: {tag_give: tag, title_give: title, cmt_give: cmt},
-            success: function (response) {
-                alert(response["msg"]);
-                window.location.href='/community';
-            }
-        })
-    }
+
+<script>
+
 </script>
+
 </body>
 
 </html>

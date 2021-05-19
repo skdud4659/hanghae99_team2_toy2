@@ -27,11 +27,11 @@
 <!--  2조멤버, 로그인, 회원가입 버튼  -->
 <div class="first_hr">
     <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
-<!--    로그인하면 로그아웃 버튼으로 바뀜     -->
+        <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
         {% if session['user'] %}
-        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃 </button>
+        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃</button>
         {% else %}
-<!--    비로그인 상태이면 기존 버튼     -->
+        <!--    비로그인 상태이면 기존 버튼     -->
         <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
         <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
         {% endif %}
@@ -43,7 +43,7 @@
     <div class="left-wrap">
         <button type="button" class="btn" style="margin-top: 100px" onclick="location.href='/'">Home</button>
         <br>
-        <button type="button" class="btn" onclick="location.href='/aboutus'">About</button>
+        <button type="button" class="btn" onclick="location.href='/aboutus'" style="text-decoration: underline; font-weight: bolder">About</button>
         <br>
         <button type="button" class="btn" onclick="location.href='/makecrew'">with me</button>
         <br>
@@ -57,9 +57,16 @@
     <div class="about">
         <h1> About page <span style="font-size:12px">이 페이지는 항해99 2기 사전 스터디 2조 토이 프로젝트로 생성된 페이지입니다.</span></h1>
         <p> 최근에는 크루를 결성해 일시적으로 모임을 형성하고 함께 운동을 즐기는 사람들이 많아졌습니다.
-            <br>혼자하는 지루하고 평범한 운동은 그만!
-            <br>[쉘위]에서 의욕 뿜뿜 함께 운동을 진행할 크루를 모집하고 참가해보세요. >> <span> <button type="button" class="withme" onclick="location.href='makecrew'">with me 바로가기</button> </span></p>
-
+            <br><br>혼자하는 지루하고 평범한 운동은 그만! 의욕 뿜뿜 함께 운동을 진행할 크루를 모집하고 참가해보세요. >> <span> <button type="button"
+                                                                                              class="withme"
+                                                                                              onclick="location.href='makecrew'">with me 바로가기</button> </span>
+            <br><br>크루원들과 함께 운동을 진행하니 어떠신가요? 조금 더 즐거운 운동 시간이 되지 않았나요? <br>즐거운 이야기는 나누면 배로 증가하죠! 크루들과 함께했던 얘기를 들려주세요. >>
+            <span> <button type="button" class="withme"
+                           onclick="location.href='community'">community 바로가기</button> </span>
+            <br><br>[shall we]와 함께하며 불편했거나 개선할 점은 언제든 의견을 들려주세요! >>
+            <span> <button type="button" class="withme"
+                           onclick="location.href='getintouch'">get in touch 바로가기</button> </span>
+        </p>
 
     </div>
     <!--종혁님 info-->
