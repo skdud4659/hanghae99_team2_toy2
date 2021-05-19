@@ -48,7 +48,6 @@ body {
     height: 250px;
     border: solid 1px black;
     margin: auto;
-    margin-left: 23rem;
     border-radius: 20px;
     /*text-align: center;*/
 }
@@ -61,6 +60,13 @@ body {
     border: #2d3436 solid 1px;
     border-radius: 5px;
     cursor: pointer;
+}
+.crew-box{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-left: 21rem;
+
 }
 .info-text{
     margin-left: 10px;
