@@ -22,6 +22,24 @@
     <link rel="stylesheet" type="text/css" href="../static/joincrew.css">
     <title>shall we - with me</title>
 </head>
+<script>
+ function let_crew() {
+     let name = $('#name').val();
+     let mail = $('#email').val();
+     let phone = $('#phone').val();
+     $.ajax({
+         type: "POST",
+         url: "crewpeople",
+         data: {name_give: name, mail_give: mail, phone_give: phone},
+         success: function (response){
+             alert(response['msg'])
+             location.href='/makecrew'
+         }
+     })
+ }
+
+
+</script>
 
 <body>
     <div class="left-wrap">
@@ -35,7 +53,8 @@
         <br>
         <button type="button" class="left-btn">community</button>
     </div> <!--왼쪽 탭-->
-    <form>
+<form>
+    <div class="wrap">
     <div class="info-border">
         <div class="join-area" style="margin-top: 20px;"> <!--이름-->
             <input type="text" name="name" id="name"
@@ -52,7 +71,8 @@
                    autocomplete="off" required>
             <label for="phone">번호</label>
         </div> <!--전화번호-->
-        <button type="button" class="btn btn-success join-btn" id="btn">제출하기</button>
+        <button type="button" onclick="let_crew();" class="btn btn-success join-btn" id="btn">제출하기</button>
+    </div>
     </div>
 </form>
 <script>

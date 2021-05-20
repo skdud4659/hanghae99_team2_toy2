@@ -47,7 +47,7 @@
                                         <p class="info-text">장소: ${place}</p>
                                         <p class="info-text">시간: ${time}</p>
                                         <p class="info-text">모집인원: ${people}</p>
-                                        <button type="button" class="btn btn-success crew-btn" id="crew-btn">참가하기</button>
+                                        <button type="button"  class="btn btn-success crew-btn" id="crew-btn" onclick="location.href='/joincrew'">참가하기</button>
                                      </div>`
                     $('#make-crew').append(temp_html)
                 }
@@ -118,7 +118,7 @@
         <p class="info-text">장소 : </p>
         <p class="info-text">시간 : </p>
         <p class="info-text">모집인원 :</p>
-        <button type="button" class="btn btn-success crew-btn" id="crew-btn">참가하기</button>
+        <button type="button" class="btn btn-success crew-btn" id="crew-btn" onclick="location.href='/joincrew'">참가하기</button>
     </div>
         <divbody id="make-crew">
         </divbody>

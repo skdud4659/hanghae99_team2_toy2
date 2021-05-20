@@ -8,6 +8,13 @@ body {
     width: 40vh;
     height: 100vh;
     background-color: #2d3436;
+    position: sticky;
+    top: 0;
+}
+.wrap{
+    margin: auto;
+    margin-left: 327px;
+    margin-top: -80vh;
 }
 .left-btn{
     background-color: transparent;
@@ -25,8 +32,8 @@ body {
     border: solid 2px black;
     border-radius: 20px;
     margin: auto;
-    margin-top: -80vh;
-    margin-left: 30rem;
+    /*margin-top: -80vh;*/
+    /*margin-left: 30rem;*/
 }
 .join-area {
     width: 400px; position: relative;

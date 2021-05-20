@@ -102,10 +102,33 @@ def view_crew():
     crew = list(db.crew.find({}, {'_id': False}))
     return jsonify({'crew': crew})
 
+
+# 크루참가하기(POST)API
+@app.route('/crewpeople', methods=['POST'])
+def save_people():
+    name_receive = request.form['name_give']
+    mail_receive = request.form['mail_give']
+    phone_receive = request.form['phone_give']
+
+    doc = {
+        'name': name_receive,
+        'mail': mail_receive,
+        'phone': phone_receive
+    }
+    db.people.insert_one(doc)
+
+    return jsonify({'msg': '크루 참가 완료!'})
+
+# 크루참가목록보기(GET)API
+@app.route('/crewpeople', methods=['GET'])
+def view_people():
+    people = list(db.crew.find({}, {'_id': False}))
+    return jsonify({'people': people})
+
 # 크루 참가
 @app.route('/joincrew')
 def joincrew():
-    return render_template('makecrew.html')
+    return render_template('joincrew.html')
 
 
 # shop
