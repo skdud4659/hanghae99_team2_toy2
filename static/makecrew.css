@@ -87,6 +87,11 @@ body {
     margin-left: 327px;
 
 }
+#make-crew{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 100px;
+}
 /*경고 부분*/
 .make-area {
     width: 400px; position: relative;
