@@ -11,7 +11,7 @@ db = client.dbhanghae2
 # 메인
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 # 로그인
@@ -169,7 +169,7 @@ def posting():
 #이메일보내기
 @app.route('/getintouch')
 def getintouch():
-    return render_template('/getintouch.html')
+    return render_template('/index.html')
 
 
 if __name__ == '__main__':
