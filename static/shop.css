@@ -8,8 +8,11 @@ body {
     width: 40vh;
     height: 100vh;
     background-color: #2d3436;
+    position: sticky;
+    top: 0;
 }
-.btn{
+
+.left-btn{
     background-color: transparent;
     outline: none;
     border: none;
@@ -19,11 +22,18 @@ body {
     margin-left: 10vh;
     color: white;
 }
-.card{
+.wrap{
+    width: 1000px;
     display: flex;
-    margin: auto;
+    flex-wrap: wrap;
+    margin-left: 327px;
     margin-top: -95vh;
-    margin-left: 24rem;
-    margin-right: 55%;
+
+}
+.card{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    /*margin-left: 21rem;*/
     border-radius: 20px;
 }
