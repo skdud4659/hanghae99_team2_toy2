@@ -53,36 +53,51 @@
     </div>
 </div>
 <!-- about us -->
-<form class="gform about" method="POST"
-      action="https://script.google.com/macros/s/AKfycbzVBSGKC6oH5uLliQOTP4N_iySMQk1RE7msaU1keopM38HuJzieie4RTkSpHbg_tkeJ-A/exec">
+<div class="about">
     <div>
         <h1> Get in touch</h1>
         <div class="getintouch">
             <div>
                 <p>Name</p>
-                <input type="text" name="name" placeholder="이름을 입력해주세요." class="inputbox_a" required></div>
+                <input type="text" id="name" placeholder="이름을 입력해주세요." class="inputbox_a" required></div>
             <div>
                 <p>Email</p>
-                <input type="email" name="email" placeholder="이메일을 입력해주세요." class="inputbox_a" required></div>
+                <input type="email" id="email" placeholder="이메일을 입력해주세요." class="inputbox_a" required></div>
         </div>
         <div class="message">
             <p>Message</p>
-            <textarea name="message" type="text" placeholder="소중한 의견을 들려주세요." class="inputbox_b" required></textarea>
+            <textarea id="message" type="text" placeholder="소중한 의견을 들려주세요." class="inputbox_b" required></textarea>
         </div>
-        <button class="getintouch_btn" onclick="submit()">submit</button>
+        <button type="button" id="submit" class="getintouch_btn">submit</button>
     </div>
-    <!-- Customise the Thankyou Message People See when they submit the form: -->
-    <div class="thankyou_message" style="display:none;">
-        <h2><em>Thanks</em> for contacting us!
-            We will get back to you soon!</h2>
-    </div>
-</form>
+</div>
 
- <!-- Submit the Form to Google Using "AJAX" -->
-  <script data-cfasync="false" type="text/javascript"
-src="email.js">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+   <script type="text/javascript">
+
+	$(document).ready(function() {
+		emailjs.init("user_X5o1fm2M7VdiI3PYnPJd0");
+
+        $('#submit').click(function(){
+          var templateParams = {
+          //각 요소는 emailJS에서 설정한 템플릿과 동일한 명으로 작성!
+                name: $('#name').val(),
+                email : $('#email').val(),
+                message : $('#message').val()};
+
+         emailjs.send('gmail_ny', 'template_rzn2k28', templateParams)
+         //emailjs.send('service ID', 'template ID', 보낼 내용이 담긴 객체)
+         	    .then(function(response) {
+         	       alert('소중한 의견 감사합니다! 빠른 피드백이 이루어질 수 있도록 노력하겠습니다.')
+         	       window.location.reload();
+         	    }, function(error) {
+         	       alert('정상적인 제출이 이루어지지 않았습니다. 다시 시도해주세요!')
+         	    });
+        });
+
+	  });
+
 </script>
-<!-- END -->
 </body>
 
 </html>
