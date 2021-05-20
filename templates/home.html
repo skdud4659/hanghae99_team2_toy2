@@ -24,43 +24,15 @@
 
     <link rel="stylesheet" type="text/css" href="../static/home.css">
 
-    <script>
-        $.ajax({
-            type: "GET",
-            url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
-            data: {},
-            success: function (response) {
-                let rows = response['RealtimeCityAir']['row']
-                for(let i = 0; i < rows.length; i++) {
-                    let gu_name = rows[i]['MSRSTE_NM']
-                    let gu_mise = rows[i]['IDEX_MVL']
-                    let gu_condition = rows[i]['IDEX_NM']
-
-                    let temp_html = `<li class="dusty-list">${gu_name} - ${gu_mise} ${gu_condition} </li>`
-
-                    $('#dusty-box').append(temp_html)
-                }
-            }
-        })
-
-        $(function () {
-            $('#mise-api').vTicker({
-                speed: 500,
-                pause: 1000,
-                showItems: 2,
-                height: 316,
-                padding: 10,
-                autoAppend: true
-            });
-        });
-    </script>
 
 </head>
 
 <body>
 <!--  왼쪽 메뉴바  -->
 <div class="left-wrap">
-    <button type="button" class="btn" onclick="location.href='/'" style="text-decoration: underline; font-weight: bolder; margin-top: 100px">Home</button>
+    <button type="button" class="btn" onclick="location.href='/'"
+            style="text-decoration: underline; font-weight: bolder; margin-top: 100px">Home
+    </button>
     <br>
     <button type="button" class="btn" onclick="location.href='/aboutus'">About</button>
     <br>
@@ -98,7 +70,13 @@
 <!--  api   -->
 <div class="api-wrap hr-sect">
     <div class="api-box">
-        <div id="weather-api"><h1>날씨api</h1></div>
+        <div id="weather-api">
+            <div id="weather-box">
+                <div class="City"></div>
+                <div class="CurrTemp"></div>
+                <div style="color: #9fcdff" class="CurrIcon"></div>
+            </div>
+        </div>
         <div id="mise-api">
             <ul id="dusty-box">
                 <li class="vticker">서울 미세먼지 현황</li>
@@ -107,7 +85,68 @@
         </div>
     </div>
 </div>
+<script>
+    $.ajax({
+        type: "GET",
+        url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+        data: {},
+        success: function (response) {
+            let rows = response['RealtimeCityAir']['row']
+            for (let i = 0; i < rows.length; i++) {
+                let gu_name = rows[i]['MSRSTE_NM']
+                let gu_mise = rows[i]['IDEX_MVL']
+                let gu_condition = rows[i]['IDEX_NM']
+
+                let temp_html = `<li class="dusty-list">${gu_name} - ${gu_mise} ${gu_condition} </li>`
+
+                $('#dusty-box').append(temp_html)
+            }
+        }
+    })
+
+    $(function () {
+        $('#mise-api').vTicker({
+            speed: 500,
+            pause: 1000,
+            showItems: 2,
+            height: 316,
+            padding: 10,
+            autoAppend: true
+        });
+    });
+
+    // 날씨
+    $(document).ready(function () {
+        let weatherIcon = {
+            '01': 'fas fa-sun',
+            '02': 'fas fa-cloud-sun',
+            '03': 'fas fa-cloud',
+            '04': 'fas fa-cloud-meatball',
+            '09': 'fas fa-cloud-sun-rain',
+            '10': 'fas fa-cloud-showers-heavy',
+            '11': 'fas fa-poo-storm',
+            '13': 'far fa-snowflake',
+            '50': 'fas fa-smog'
+        };
+
+        $.ajax({
+            type: "GET",
+            url: "http://api.openweathermap.org/data/2.5/weather?q=Seoul&APPID=990cae6ed2b0f4059dc52bbe460873f5&units=metric",
+            data: 'json',
+            success: function (data) {
+                var $icon = (data.weather[0].icon).substr(0, 2);
+                var $temp = Math.floor(data.main.temp) + '°';
+                var $city = data.name;
+
+                $('.CurrIcon').append('<i class="' + weatherIcon[$icon] + '"></i>');
+                $('.CurrTemp').prepend($temp);
+                $('.City').append($city);
+            }
+        })
+    })
+</script>
 </body>
+<script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf-8" src="../static/vticker/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="../static/vticker/jquery.vticker.min.js"></script>
 </html>
