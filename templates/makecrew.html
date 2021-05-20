@@ -42,7 +42,7 @@
                     let time = makecrew[i]['time']
                     let people = makecrew[i]['people']
 
-                    let temp_html = `<div class="crew-info">
+                    let temp_html = `<div class="crew-info" style="margin-top: 20px;">
                                         <p class="info-text">종류: ${exercise}</p>
                                         <p class="info-text">장소: ${place}</p>
                                         <p class="info-text">시간: ${time}</p>
@@ -84,6 +84,7 @@
     <button type="button" class="btn">community</button>
 </div> <!--왼쪽 탭-->
 <form>
+    <div class="crew-top">
     <div class="join-box">
         <div class="make-area"> <!--운동종류-->
             <input type="text" name="exercise" id="exercise"
@@ -107,7 +108,9 @@
         </div> <!--인원-->
         <button type="button" onclick="make_crew();" class="btn btn-success join-btn" id="btn">크루 모집</button>
     </div>
+        </div>
     <hr>
+    <div class="crew-bottom">
     <div class="crew-box">
     <div class="crew-info">
         <p style="margin-top: 15px" class="info-text">(모집중)</p>
@@ -120,6 +123,7 @@
         <divbody id="make-crew">
         </divbody>
     </div>
+        </div>
 </form>
 <script>
     let exercise = $('#exercise');

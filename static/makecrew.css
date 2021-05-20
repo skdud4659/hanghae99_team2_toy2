@@ -2,12 +2,16 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #aca9d1, #f0def2, #c4dcf9);
+
 }
 
 .left-wrap{
     width: 40vh;
     height: 100vh;
     background-color: #2d3436;
+    float: left;
+    position: sticky;
+    top: 0;
 }
 .btn{
     background-color: transparent;
@@ -26,8 +30,7 @@ body {
 .join-box{
     width : 60vh;
     margin: auto;
-    margin-top: -100vh;
-    margin-right: 20%;
+    /*margin-right: 20%;*/
     /*border: solid 1px black;*/
     border-radius: 20px;
 }
@@ -64,14 +67,27 @@ body {
 .crew-box{
     width: fit-content;
     height: fit-content;
-    margin: auto;
-    margin-left: 21rem;
+    margin-left: 2rem;
+    /*margin: auto;*/
+    /*margin-left: 21rem;*/
 
 }
 .info-text{
     margin-left: 10px;
 }
+.crew-top{
+    width: 1200px;
+    margin: auto;
+    margin-left: 327px;
 
+}
+.crew-bottom{
+    width: 1200px;
+    margin: auto;
+    margin-left: 327px;
+
+}
+/*경고 부분*/
 .make-area {
     width: 400px; position: relative;
     margin-top: 20px;
@@ -108,3 +124,4 @@ body {
 .make-area input:valid + label{
     top: -2px;
     font-size: 13px; color: seagreen;}
+/*경고 부분 끝*/
