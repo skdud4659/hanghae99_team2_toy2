@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>shall we</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+            data: {},
+            success: function (response) {
+                let rows = response['RealtimeCityAir']['row']
+                for(let i = 0; i < rows.length; i++) {
+                    let gu_name = rows[i]['MSRSTE_NM']
+                    let gu_mise = rows[i]['IDEX_MVL']
+                    let gu_condition = rows[i]['IDEX_NM']
+
+                    let temp_html = `<li class="dusty-list">${gu_name} - ${gu_mise} ${gu_condition} </li>`
+
+                    $('#dusty-box').append(temp_html)
+                }
+            }
+        })
+
+        $(function () {
+            $('#mise-api').vTicker({
+                speed: 500,
+                pause: 1000,
+                showItems: 2,
+                height: 316,
+                padding: 10,
+                autoAppend: true
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<!--  왼쪽 메뉴바  -->
+<div class="left-wrap">
+    <button type="button" class="btn" onclick="location.href='/'" style="text-decoration: underline; font-weight: bolder; margin-top: 100px">Home</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/aboutus'">About</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/makecrew'">with me</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/shop'">shop</button>
+    <br>
+    <button type="button" class="btn" onclick="location.href='/community'">community</button>
+</div>
+<!--  2조멤버, 로그인, 회원가입 버튼  -->
+
+<div class="first_hr">
+    <h3 class="header-title">항해99 2기 토이프로젝트 우종혁 김나영 이선민
+        <!--    로그인하면 로그아웃 버튼으로 바뀜     -->
+        {% if session['user'] %}
+        <button type="button" onclick="location.href='/logout'" class="top-btn">로그아웃</button>
+        {% else %}
+        <!--    비로그인 상태이면 기존 버튼     -->
+        <button type="button" onclick="location.href='/register'" class="top-btn">회원가입</button>
+        <button type="button" onclick="location.href='/login'" class="top-btn">로그인</button>
+        {% endif %}
+    </h3>
+    <hr style="margin: 0">
+</div>
+
+<!--  video  -->
+<video autoplay muted loop class="main-vid">
+    <h1>shall we</h1>
+    <source src="../static/video/Skate.mp4" type="video/mp4">
+</video>
+<!--  메인페이지 제목  -->
+<div class="top-title">
+    <h1>Shall we?</h1>
+</div>
+<!--  api   -->
+<div class="api-wrap hr-sect">
+    <div class="api-box">
+        <div id="weather-api"><h1>날씨api</h1></div>
+        <div id="mise-api">
+            <ul id="dusty-box">
+                <li class="vticker">서울 미세먼지 현황</li>
+                <li class="vticker">#</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" charset="utf-8" src="../static/vticker/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/vticker/jquery.vticker.min.js"></script>
+</html>
