@@ -171,6 +171,11 @@ def posting():
 def getintouch():
     return render_template('/index.html')
 
+#아이템 페이지
+@app.route('/item')
+def item():
+    return render_template('/item.html')
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
